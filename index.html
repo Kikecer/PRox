@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspiration Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="auth-container" id="authContainer">
+        <div class="auth-form" id="loginForm">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password">
+            </div>
+            <button id="loginButton" class="auth-btn">Login</button>
+            <p class="auth-switch">Don't have an account? <span id="showRegister">Register</span></p>
+        </div>
+
+        <div class="auth-form" id="registerForm" style="display: none;">
+            <h2>Register</h2>
+            <div class="form-group">
+                <label for="registerName">Name</label>
+                <input type="text" id="registerName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <input type="email" id="registerEmail" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" placeholder="Create a password">
+            </div>
+            <div class="form-group">
+                <label for="registerConfirmPassword">Confirm Password</label>
+                <input type="password" id="registerConfirmPassword" placeholder="Confirm your password">
+            </div>
+            <button id="registerButton" class="auth-btn">Register</button>
+            <p class="auth-switch">Already have an account? <span id="showLogin">Login</span></p>
+        </div>
+    </div>
+
+    <div class="app-container" id="appContainer" style="display: none;">
+        <header class="header">
+            <div class="user-info">
+                <img id="userAvatar" src="https://ui-avatars.com/api/?background=random" alt="User Avatar">
+                <span id="userName"></span>
+            </div>
+            <h1>Inspiration Hub</h1>
+            <div class="header-actions">
+                <button id="themeToggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+                <button id="logoutButton" class="icon-btn"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </header>
+
+        <nav class="sidebar">
+            <button class="nav-btn active" id="allCardsBtn"><i class="fas fa-th-large"></i> All Cards</button>
+            <button class="nav-btn" id="favoritesBtn"><i class="fas fa-star"></i> Favorites</button>
+            <div class="tags-container">
+                <h3>Tags</h3>
+                <div class="tags-list" id="tagsList">
+                    <!-- Tags will be added dynamically -->
+                </div>
+                <button id="addTagBtn" class="small-btn"><i class="fas fa-plus"></i> Add Tag</button>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="board-header">
+                <h2 id="boardTitle">All Inspiration Cards</h2>
+                <button id="addCardButton" class="add-btn"><i class="fas fa-plus"></i> Add Card</button>
+            </div>
+            
+            <section class="board" id="board">
+                <!-- Cards will be added dynamically -->
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="cardModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeCardModal">&times;</button>
+            <h2 id="modalTitle">Add New Card</h2>
+            <div class="form-group">
+                <label for="cardTitle">Title</label>
+                <input type="text" id="cardTitle" placeholder="Card title">
+            </div>
+            <div class="form-group">
+                <label for="cardText">Content</label>
+                <textarea id="cardText" placeholder="Write something inspiring..." rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="cardTags">Tags (comma separated)</label>
+                <input type="text" id="cardTags" placeholder="motivation, ideas, quotes">
+            </div>
+            <div class="form-group">
+                <label for="cardColor">Card Color</label>
+                <input type="color" id="cardColor" value="#ffffff">
+            </div>
+            <div class="modal-actions">
+                <button class="cancel-btn" id="cancelCard">Cancel</button>
+                <button class="save-btn" id="saveCard">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="tagModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeTagModal">&times;</button>
+            <h2>Add New Tag</h2>
+            <div class="form-group">
+                <label for="tagName">Tag Name</label>
+                <input type="text" id="tagName" placeholder="Enter tag name">
+            </div>
+            <div class="form-group">
+                <label for="tagColor">Tag Color</label>
+                <input type="color" id="tagColor" value="#669bbc">
+            </div>
+            <div class="modal-actions">
+                <button class="cancel-btn" id="cancelTag">Cancel</button>
+                <button class="save-btn" id="saveTag">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <h2 id="confirmMessage">Are you sure?</h2>
+            <div class="modal-actions">
+                <button class="cancel-btn" id="cancelConfirm">Cancel</button>
+                <button class="delete-btn" id="confirmAction">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
